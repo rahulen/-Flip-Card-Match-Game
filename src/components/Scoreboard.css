@@ -1,0 +1,8 @@
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+  font-size: 18px;
+} 

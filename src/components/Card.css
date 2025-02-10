@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card {
+  width: 100px;
+  height: 150px;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card.flipped .card-front {
+  transform: rotateY(0);
+}
+
+.card.flipped .card-back {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  border-radius: 10px;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #333;
+}
+
+.card-back {
+  background-color: #4a90e2;
+  color: white;
+  transform: rotateY(0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.card.matched {
+  border: 2px solid green;
+  box-shadow: 0 0 10px green;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px green;
+  }
+  50% {
+    box-shadow: 0 0 20px green;
+  }
+  100% {
+    box-shadow: 0 0 10px green;
+  }
+}
+
+.scoreboard {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.scoreboard div {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.current-player {
+  color: #4a90e2;
+  font-weight: bold;
+}
+
+.restart-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.restart-button:hover {
+  background-color: #357ab8;
+}
+
+.victory-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000;
+}
+
+.victory-popup h2 {
+  margin: 0 0 20px;
+  font-size: 2em;
+  color: #4a90e2;
+}
+
+.victory-popup .restart-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.victory-popup .restart-button:hover {
+  background-color: #357ab8;
+}
